@@ -1,12 +1,10 @@
-let handler = async (m, { conn, text }) => {
-let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : 'teksnya mana?'
-/*let sel = global.API('xteam', '/attp', { file: '', text: teks })*/
-let sel = (`https://api.lolhuman.xyz/api/attp2?apikey=SGWN&text=${text}`)
- conn.sendFile(m.chat, sel, 'attp.webp', 0, fake, {packname: packname, author: author, mentions: [m.semder]})
+t handler = async (m, { conn, text }) => {
+    let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : m.text
+    conn.sendFile(m.chat, global.API('xteam', '/attp', { file: '', text: teks }), 'attp.webp', '', m, false, { asSticker: true })
 }
 handler.help = ['attp <teks>']
 handler.tags = ['sticker']
 
 handler.command = /^attp$/i
 
-module.exports = handler
+export default handler
